@@ -2375,7 +2375,7 @@
 		if( typeof size.width === 'string' && /%$/.test( size.width ) ) {
 			size.width = parseInt( size.width, 10 ) / 100 * size.presentationWidth;
 			// If width was a percentage, and height was a value,
-			if( typeof config.height === 'number' ) {
+			if( typeof size.height !== 'string' || ! /%$/.test( size.height ) ) {
 				// scale the width by the width scale, so actual size is correct.
 				size.width = ( size.height / size.presentationHeight ) * size.width;
 			}
@@ -2385,7 +2385,7 @@
 		if( typeof size.height === 'string' && /%$/.test( size.height ) ) {
 			size.height = parseInt( size.height, 10 ) / 100 * size.presentationHeight;
 			// If height was a percentage, and width was a value,
-			if( typeof config.width === 'number' ) {
+			if( typeof size.width !== 'string' && ! /%$/.test( size.width ) ) {
 				// scale the height by the width scale, so actual size is correct.
 				size.height = ( size.width / size.presentationWidth ) * size.height;
 			}
