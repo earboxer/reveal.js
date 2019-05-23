@@ -2385,7 +2385,7 @@
 		if( typeof size.height === 'string' && /%$/.test( size.height ) ) {
 			size.height = parseInt( size.height, 10 ) / 100 * size.presentationHeight;
 			// If height was a percentage, and width was a value,
-			if( typeof size.width !== 'string' && ! /%$/.test( size.width ) ) {
+			if( typeof size.width !== 'string' || ! /%$/.test( size.width ) ) {
 				// scale the height by the width scale, so actual size is correct.
 				size.height = ( size.width / size.presentationWidth ) * size.height;
 			}
